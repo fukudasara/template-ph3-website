@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController as UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,8 @@ Route::get('/', function () {
     return view('top');
     // .blade.phpは省略していいらしい
 });
+
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
