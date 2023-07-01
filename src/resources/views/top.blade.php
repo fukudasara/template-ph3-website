@@ -7,11 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>POSSE 初めてのWeb制作</title>
   @vite('resources/css/app.css')
+
 </head>
 
 <body>
   <header id="js-header" class="items-center flex px-15 py-24">
-    <div class="relative"><img src="./assets/img/logo.svg" alt="POSSE"></div>
+    <div class="relative"><img src="{{asset('img/logo.svg')}}" alt="POSSE"></div>
     <button class="p-header__button" id="js-headerButton"></button>
     <div class="p-header__inner">
       <nav class="p-header__nav">
@@ -36,13 +37,13 @@
         <li class="p-sns__item">
           <a href="https://twitter.com/posse_program" target="_blank" rel="noopener noreferrer" class="p-sns__item__link"
             aria-label="Twitter">
-            <i class="u-icon__twitter"></i>
-          </a>
+            <img src="{{asset('img/icon/icon-twitter.svg')}}" alt="">
+          </a> 
         </li>
         <li class="p-sns__item">
           <a href="https://www.instagram.com/posse_programming/" target="_blank" rel="noopener noreferrer"
             class="p-sns__item__link" aria-label="instagram">
-            <i class="u-icon__instagram"></i>
+            <img src="{{asset('img/icon/icon-instagram.svg')}}" alt="">
           </a>
         </li>
       </ul>
