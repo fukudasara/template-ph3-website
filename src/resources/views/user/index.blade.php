@@ -7,6 +7,10 @@
 </head>
 <body>
   <h1>ユーザー一覧</h1>
-  <!-- {{ $user->name }} -->
+  @foreach ($users as $user)
+  <p>{{$user->name}}</p>
+  <p>{{$user->id}}</p>
+  <p>{{$user->email}}</p>
+  @endforeach
 </body>
 </html>

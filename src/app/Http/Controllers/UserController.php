@@ -11,8 +11,8 @@ class UserController extends Controller
 {
     public function index(Request $request): View
     {
-        $user = User::where('id', '=', 1);
-        return view('user.index', compact('user'));
+        $users = User::all();
+        return view('user.index', compact('users'));
     }
 
 }
