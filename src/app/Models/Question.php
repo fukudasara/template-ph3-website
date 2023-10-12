@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     use HasFactory;
+    protected $fillable = ['text'];
+
+    public function quiz() {
+        return $this->belongsTo (Quiz::class);
+    }
+    public function choices() {
+        return $this->hasMany (Choice::class);
+    }
+    public function loadQuizAndChoices()
+    {
+        return $this->with('quiz', 'choices')->get();
+    }
 }

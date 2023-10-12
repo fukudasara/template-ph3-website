@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB; // 追加
+use App\Models\Quiz;
 
 class QuizSeeder extends Seeder
 {
@@ -13,22 +13,16 @@ class QuizSeeder extends Seeder
      */
     public function run(): void
     {
-            // 既存のレコードを削除
-        DB::table('quizzes')->delete();
-
-        // 新しいダミーデータを挿入
-        DB::table('quizzes')->insert([
-            [
-                'name' => 'ITクイズ',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'name' => '犬クイズ',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
+        Quiz::create([
+            'name' => 'ITクイズ',
         ]);
-        DB::table('quizzes')->where('name', '歴史クイズ')->delete();
+        Quiz::create([
+            'name' => '犬クイズ',
+        ]);
+        for ($i = 1; $i <= 100; $i++) {
+            Quiz::create([
+                'name' => 'クイズ ' . $i,
+            ]);
+        }
     }
 }
