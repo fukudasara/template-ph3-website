@@ -6,19 +6,28 @@
   <title>Document</title>
 </head>
 <body>
-
-  <p>{{$quiz->name}}</p>
-</body>
-<h1>クイズ{{$quiz->id}}</h1>
-  <p>{{$quiz->name}}</p>
-
+  <h1>{{$quiz->name}}</h1>
+  
   <ul>
     @foreach ($errors->all() as $error)
     <li>{{ $error }}</li>
     @endforeach
   </ul>
 
-  <div class="mt-4 p-8 bg-white w-full rounded-2xl">
-
-  </div>
+  <form method="post" action="{{route('admin.update',['quizId' => $quiz->id])}}">
+    @foreach ($quiz->questions as $question)
+    <div class="mt-4 p-8 bg-white w-full rounded-2xl">
+      @csrf
+      @method('patch')
+      <input type="text" name="text[{{$question->id}}]" value="{{$question->text}}">
+      <hr class="w-full">
+      <input type="text" name="supplement[{{$question->id}}]" value="{{$question->supplement}}">
+      @foreach($question->choices as $choice)
+      <input type="text" name="choice[{{$question->id}}][{{$choice->id}}]" value="{{$choice->text}}">
+      @endforeach
+    </div>
+    @endforeach
+    <button>送信</button>
+  </form>
+</body>
 </html>

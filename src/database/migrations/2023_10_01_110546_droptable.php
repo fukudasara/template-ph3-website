@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('choices');
-        Schema::dropIfExists('questions');
-        Schema::dropIfExists('quizzes');
-        Schema::dropIfExists('users');
+        // Schema::dropIfExists('choices');
+        // Schema::dropIfExists('questions');
+        // Schema::dropIfExists('quizzes');
+        // Schema::dropIfExists('users');
     }
 
     /**

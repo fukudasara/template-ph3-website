@@ -11,6 +11,7 @@ class Quiz extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = ['name'];
     public function questions() {
         return $this->hasMany (Question::class);
     }

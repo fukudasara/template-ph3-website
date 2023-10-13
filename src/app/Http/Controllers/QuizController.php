@@ -91,7 +91,7 @@ class QuizController extends Controller
         $question = Question::with('choices')->find($questionId);
         $question->update($validated);
 
-        session()->flash('message', '更新しました');
+        // session()->flash('message', '更新しました');
         return redirect()->route('quiz.show', ['quizId' => $quizId])->with('success', '更新しましたwww');
 
         }
